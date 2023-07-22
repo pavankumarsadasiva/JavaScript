@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+       
+        /* .demo input{
+            position: absolute;
+            margin-top: 400px;
+            margin-left: 200px;
+            justify-content: center;
+        } */
+       
+            body {
+            margin: 0;
+            height: 100vh;
+            font-weight: 100;
+            background: radial-gradient(#8ca8c7,#1f1013);
+            justify-content: space-around;
+            display: flex;
+            
+            }
+            #bt1{
+                justify-content: center;
+                height: 50px;
+                margin-top: 500px;
+                margin-left: 0px;
+            }
+                        
+            div{
+                width: 10px;
+                height: 100vh;
+                position: relative;
+                background-color: rgb(101, 154, 223);
+                box-shadow:orange;
+                animation-name: example;
+                animation-duration: 2s;
+                animation-iteration-count:infinite;
+                animation-direction:alternate-reverse;
+                margin-left: 2px;
+            }
+
+            @keyframes example {
+              0%{
+                width: 5px;
+                height: 0px;
+                background-color: aqua;
+              }
+              50%{
+                width: 1px;
+                height: 100vh;
+                background-color: aqua;
+              }
+              100%{
+                width: 1px;
+                height: 100vh;
+                background-color: aqua;
+              
+              }
+            }  
+
+        
+    </style>
+</head>
+<body id="back">
+        
+           
+            
+            <div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div> 
+            <div></div>
+            <div></div>
+            <div></div>
+             
+            
+
+            <input type="button" value="click" id="bt1" onclick="change()">
+        
+        
+
+  
+    <script>
+        function change(){
+            // var btn1=document.getElementById('back');
+         var btn1=document.getElementById('back');
+            btn1.style.opacity=0.2;
+        }
+        
+    </script>
+</body>
+</html>

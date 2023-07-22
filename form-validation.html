@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-validations</title>
+    <style>
+        .container{
+            border: 1px solod black;
+            text-align: center;
+            padding: 20px;
+            height: 400px;
+            background-color: aquamarine;
+            width: 600px;
+            margin-left: 350px;
+            justify-content: space-around;
+        
+        }
+
+        .filed{
+            padding-top:  10px;
+            /* right: 50px; */
+            justify-content: space-around;
+        }
+        .data table,th,tr,td{
+            border: 1px solid black;
+        }
+        .data{
+            text-align: center;
+            margin-left: 350px;
+            margin-top: 50px;
+        }
+        span{
+            margin-left: 30px;
+            color: red;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <div class="container">
+            <diV class="header"> 
+                <h1>Form Validations</h1>
+            </diV>
+            <form  class="form1" >
+                    <div class="field">
+                        <label>UserName:</label>
+                        <input type="text" name="uname" id="uname" placeholder="lastname"><br>
+
+                        <span id="spantext"></span>
+
+                    </div><br>
+                    <div class="field">
+                        <label>Email:</label>
+                        <input type="text" name="email" id="email" placeholder="email"><br>
+                        <span id="spantext1"></span>
+                    </div><br>
+                    <div class="field">
+                        <label>Password:</label>
+                        <input type="text" name="password" id="pass" placeholder="password"><br>
+                        <span id="spantext2"></span>
+                    </div><br>
+                    <div class="field">
+                        <label>ConformPassword:</label>
+                        <input type="text" name="ConformPassword" id="cpass" placeholder="ConformPassword"><br>
+                        <span id="spantext3"></span>
+                    </div><br><br>
+                    <input type="button" value="submit" onclick= "validate()" >
+            </form>
+    </div>
+    <!-- <table class="data">
+        <thead> 
+            <tr>
+                <th>UserName</th>
+                <th>Userpassword</th>
+            </tr>
+        </thead>
+        <tbody id="bodyt"></tbody>
+    </table> -->
+    <script>
+        // var mainform=document.getElementById("form1").value;
+        // var bodyt1=document.getElementById("bodyt").value;
+
+    function validate(){
+
+        let userName = document.getElementById("uname").value;
+        let span = document.getElementById("spantext");
+        let span1 = document.getElementById("spantext1");
+        let span2 = document.getElementById("spantext2");
+        let span3 = document.getElementById("spantext3");
+        let email1=document.getElementById("email").value;
+        let pass1=document.getElementById("pass").value;
+        let cpass1=document.getElementById("cpass").value;
+        let valid=pass1.match(/^[A-Za-z0-9@_]{6,15}$/);
+       
+       
+       
+        if(userName==""){
+            span.innerHTML="Plese Enter the Name";
+    
+        }
+        else if(userName.length < 8){
+            span.innerHTML="Plese Enter the 8 charecters Name"; 
+            
+        }else{
+            span.innerHTML=""; 
+          
+        }
+
+        if(email1==""){
+            span1.innerHTML="please enter the mail";
+    
+        }
+        // else if(!email1.value.match(mailReg)){
+        //     span1.innerHTML="Plese Enter the valid mail"; 
+
+        // }
+        else if((email1.indexOf('@')<=0) && (email1.charAt(email1.length-4 !='.')) && (email1.charAt(email1.length-3 !='.'))) {
+            span1.innerHTML="Plese Enter the valid mail"; 
+        }
+        else{
+            span1.innerHTML=""; 
+        }
+
+
+        if(pass1 ==""){
+            span2.innerHTML="please enter the password";
+    
+        }
+         else if(valid !== 0){
+             span2.innerHTML="Plese Enter the valid password"; 
+        }
+        else{
+            span2.innerHTML=""; 
+        }
+
+
+
+        if(cpass1==""){
+            span3.innerHTML="please enter the password";
+    
+        }
+        else if(cpass1 != pass1){
+            span3.innerHTML="the Password is  not match"; 
+        }
+        else if((cpass1 == pass1) &&(cpass1 === pass1)){
+           // document.getElementById("spantext3").style.color=goodcolor;
+            span3.innerHTML="the Password is match"; 
+        }else{
+            span3.innerHTML="the password is not match"; 
+        }
+    }
+    
+
+
+    </script>
+</body>
+</html>

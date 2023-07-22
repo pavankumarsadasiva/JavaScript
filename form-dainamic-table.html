@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Dom</title>
+    <style>
+       *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    }
+    .container{
+    width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 5px;
+    width: 400px; 
+     max-width: 100%; 
+    overflow: hidden; 
+    margin: auto;
+    }
+    .header1{
+    background-color: #f7f7f7;
+    padding: 20px 40px; 
+    border-bottom: 1px solid #f0f0f0;
+}
+.form1{
+    padding: 30px 40px;
+    background-color: aquamarine;
+}
+.field{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.field label{
+     display: inline-block; 
+    margin-bottom: 5px;
+}
+.field input{
+    display: block; 
+     border-radius: 4px;
+    border:2px solid #f0f0f0;
+    font-size: 14px;
+     width: 100%; 
+    padding: 5px;  
+}
+.field span{
+    position: absolute;
+    top:20px;
+    right: 10px;
+    visibility: hidden;
+}
+.field h4{
+    /* position: absolute; */
+    bottom: 0px;
+    left: 0;
+     /* visibility: hidden; */
+    color: red;
+}
+.form1 #button{
+    width: 100%;
+    height: 30px;
+    background-color:orange;
+    border-radius: 4px;
+}
+.sub1,tr,th,td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            padding: 10px;
+            border-left: 1px solid black;
+            padding-right: 5px;
+        }
+    .sub1{
+        margin: auto;
+        margin-top: 30px;
+        background-color: chartreuse;
+    }
+    .table1{
+        visibility:hidden;
+    }
+    .table2{
+        visibility:visible;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header1">
+            <h1>Registration form</h1>
+        </div>
+        <div>
+            <form class="form1"  action="#"  method="Get" id="form1">
+                <div class="field">
+                    <label>UserName</label>
+                    <input type="text"  name="uname"  id="uname">
+                    <span class="material-symbols-outlined success" id="a1"> check_circle</span>
+                    <span class="material-symbols-outlined error " id="b1">error</span>
+                    <h4 id="m1"></h4>
+
+
+                </div>
+                <div class="field">
+                    <label>Lastname</label>
+                    <input type="text"  name="lname"  id="lname">
+                    <span class="material-symbols-outlined success" id="a2" >  check_circle </span>
+                    <span class="material-symbols-outlined error"id="b2"> error</span>
+                    <h4 id="m2"></h4>
+
+
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text"  name="email"  id="email">
+                    <span class="material-symbols-outlined success" id="a3">  check_circle </span>
+                    <span class="material-symbols-outlined error" id="b3"> error</span>
+                    <h4  id="m3"></h4>
+
+
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password"  name="password"  id="pass">
+                    <span class="material-symbols-outlined success" id="a4">  check_circle </span>
+                    <span class="material-symbols-outlined error" id="b4"> error</span>
+                    <h4 id="m4"></h4>
+
+
+                </div>
+                <div class="field">
+                    <label>ConformPassword</label>
+                    <input type="password"  name="password"  id="cpass">
+                    <span class="material-symbols-outlined success" id="a5">  check_circle </span>
+                    <span class="material-symbols-outlined error" id="b5"> error</span>
+                    <h4 id="m5"></h4>
+
+
+                </div>
+                <input type="submit"  id="button">
+            </form>
+        </div>
+        <div id="table" class="table1">
+            <table id="sub" class="sub1">
+                <thead>
+                    <tr>
+                        <th>UserNsme</th>
+                        <th>email</th>
+                        <th>password</th>
+                    </tr>
+                </thead>
+                
+               
+                
+            </table>
+        </div>
+        
+    </div>
+    <script>
+        
+
+            var uname=document.getElementById('uname').value;
+            var lname=document.getElementById('lname').value;
+            var email=document.getElementById('email').value;
+
+            var pass=document.getElementById('pass').value;
+            var cpass=document.getElementById('cpass').value;
+
+            form1.addEventListener('submit',(e)=>{
+
+                e.preventDefault()
+                validate()
+                })
+            
+                var row=1
+
+        function validate(){
+           
+
+            var uname=document.getElementById('uname').value;
+            var lname=document.getElementById('lname').value;
+            var email=document.getElementById('email').value;
+
+            var pass=document.getElementById('pass').value;
+            var cpass=document.getElementById('cpass').value;
+            var passpat=/(?=.[A-Z]+)(?=.[!@#\$%]+)/;
+
+            
+
+            if(uname == ''){       
+                let small = document.getElementById('m1')
+                small.innerText = "please enter the user name";
+                let email1=document.getElementById('uname')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b1')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+
+                //return false;
+            }
+            else if(uname.length < 5 && uname.length < 15){
+                
+                
+                
+                let small = document.getElementById('m1')
+                small.innerText = "please enter min5 and max15";
+                let email1=document.getElementById('uname')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b1')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('a1')
+                scc1.style.visibility="hidden";
+                
+                //return false;
+            }
+            else{
+                let small = document.getElementById('m1')
+                small.innerText = "";
+                let email1=document.getElementById('uname')
+                email1.style.borderColor="green";
+                let scc=document.getElementById('a1')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('b1')
+                scc1.style.visibility='hidden';
+
+              
+                //return true;
+            }
+            
+            
+            
+            
+            
+            
+            if(lname == ''){       
+                let small = document.getElementById('m2')
+                small.innerText = "please enter the user name";
+                let email1=document.getElementById('lname')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b2')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+               // return false;
+            }
+            else if(lname.length < 5 && lname.length < 15){                              
+                let small = document.getElementById('m2')
+                small.innerText = "please enter min5 and max15";
+                let email1=document.getElementById('lname')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b2')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('a2')
+                scc1.style.visibility="hidden";
+                //return false;
+            }
+            else{
+                
+                let small = document.getElementById('m2')
+                small.innerText = "";
+                let email1=document.getElementById('lname')
+                email1.style.borderColor="green";
+                let scc=document.getElementById('a2')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('b2')
+                scc1.style.visibility='hidden';
+                
+                
+            }
+        
+
+            if((email.indexOf('@')<=0) && (email.charAt(email.length-4 !='.'))
+                                                                 && (email.charAt(email.length-3 !='.'))){       
+                let small = document.getElementById('m3')
+                small.innerText = "please enter  corect mail";
+                let email1=document.getElementById('email')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b3')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('a3')
+                scc1.style.visibility="hidden";
+                //return false;
+            }
+            else if(email=='') {
+               
+                let small = document.getElementById('m3')
+                small.innerText = "please enter  email";
+                let email1=document.getElementById('email')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b3')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+               // return false;
+            }
+            else{
+                
+                let small = document.getElementById('m3')
+                small.innerText = " ";
+                small.style.color="green";
+                let email1=document.getElementById('email')
+                email1.style.borderColor="green";
+                let scc=document.getElementById('a3')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('b3')
+                scc1.style.visibility='hidden';
+                               
+            }
+
+
+
+            if(pass==''){
+                let small = document.getElementById('m4')
+                small.innerText = "please enter the password";
+                let email1=document.getElementById('pass')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b4')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+            }
+            else if(!passpat.test(pass))
+				{
+				let small = document.getElementById('m4')
+                small.innerText = "please enter correct password";
+                let email1=document.getElementById('pass')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b4')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('a4')
+                scc1.style.visibility="hidden";
+				}
+                else{
+                
+                let small = document.getElementById('m4')
+                small.innerText = " ";
+                small.style.color="green";
+                let email1=document.getElementById('pass')
+                email1.style.borderColor="green";
+                let scc=document.getElementById('a4')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('b4')
+                scc1.style.visibility='hidden';
+               
+                
+            }
+            
+            
+
+
+            
+            if(cpass==''){
+                let small = document.getElementById('m5')
+                small.innerText = "please enter the password";
+                let email1=document.getElementById('cpass')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b5')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+            }
+            else if((cpass == pass) &&(cpass === pass)){
+                let small = document.getElementById('m5')
+                small.innerText = " ";
+                small.style.color="green";
+                let email1=document.getElementById('cpass')
+                email1.style.borderColor="green";
+                let scc=document.getElementById('a5')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('b5')
+                scc1.style.visibility='hidden';
+
+            }
+            else{
+                let small = document.getElementById('m5')
+                small.innerText = "please enter  corect password";
+                let email1=document.getElementById('cpass')
+                email1.style.borderColor="red";
+                let scc=document.getElementById('b5')
+                scc.style.visibility="visible";
+                scc.style.paddingTop="5px";
+                let scc1=document.getElementById('a5')
+                scc1.style.visibility="hidden";
+            }
+
+
+            //dynamic table
+            if(cpass!='' && uname!='' && email!='' && cpass!=''){
+                var uname=document.getElementById('uname').value;
+                var email=document.getElementById('email').value;
+                var pass=document.getElementById('cpass').value;
+
+                var table=document.getElementById('table')
+                table.classList.add('table2')
+
+                var tab = document.getElementById('sub')
+                
+                var newRow = tab.insertRow(row)
+                var cell1= newRow.insertCell(0);
+                var cell2= newRow.insertCell(1);
+                var cell3=newRow.insertCell(2);
+
+
+                cell1.innerHTML=uname
+                cell2.innerHTML=email
+                cell3.innerHTML=pass
+
+
+                row++ ;
+        
+            }
+            //console.log(table)
+        }
+    </script>
+</body>
+</html>
